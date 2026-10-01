@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Happy Boyfriend's Day! ❤️</title>
+  <title>Happy Boyfriend's Day babyyyy! ❤️</title>
   <style>
     :root {
       --bg-color: #fff0f3;
@@ -52,49 +52,45 @@
       display: block;
     }
 
-    input[type="text"] {
-      width: 100%;
-      padding: 12px 15px;
-      margin: 15px 0 20px 0;
-      border: 2px solid #ffccd5;
-      border-radius: 10px;
-      font-size: 1rem;
-      box-sizing: border-box;
-      outline: none;
-      transition: border-color 0.3s;
+    /* MCQ Grid Layout */
+    .mcq-options {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin: 20px 0;
     }
 
-    input[type="text"]:focus {
-      border-color: var(--primary);
+    .mcq-btn {
+      background-color: #ffe5ec;
+      color: var(--text);
+      border: 2px solid #ffb3c1;
+      padding: 12px 18px;
+      font-size: 0.98rem;
+      font-weight: 600;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      text-align: center;
     }
 
-    button {
+    .mcq-btn:hover {
       background-color: var(--primary);
       color: white;
-      border: none;
-      padding: 12px 24px;
-      font-size: 1rem;
-      font-weight: bold;
-      border-radius: 25px;
-      cursor: pointer;
-      transition: background-color 0.2s, transform 0.1s;
-    }
-
-    button:hover {
-      background-color: var(--primary-hover);
+      border-color: var(--primary);
+      transform: translateY(-2px);
     }
 
     .error-msg {
       color: #d90429;
       font-size: 0.85rem;
-      margin-top: -10px;
-      margin-bottom: 15px;
+      margin-top: 5px;
       display: none;
     }
 
+    /* Interactive Buttons Zone */
     .button-zone {
       position: relative;
-      min-height: 120px;
+      min-height: 140px;
       margin-top: 20px;
       display: flex;
       justify-content: center;
@@ -103,28 +99,43 @@
     }
 
     #bigBtn {
-      font-size: 1.2rem;
-      padding: 16px 32px;
+      font-size: 1.1rem;
+      padding: 16px 28px;
       z-index: 2;
+      background-color: var(--primary);
+      color: white;
+      border: none;
+      border-radius: 25px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    #bigBtn:hover {
+      background-color: var(--primary-hover);
     }
 
     #runawayBtn {
       position: absolute;
       font-size: 0.8rem;
-      padding: 6px 12px;
+      padding: 8px 14px;
       background-color: #ffb3c1;
       color: var(--text);
+      border: none;
+      border-radius: 20px;
+      font-weight: bold;
       z-index: 10;
+      cursor: pointer;
       transition: all 0.15s ease-out;
     }
 
+    /* Final Letter Styling */
     .letter {
       text-align: left;
       line-height: 1.6;
       font-size: 1.05rem;
       color: var(--text);
       white-space: pre-wrap;
-      max-height: 400px;
+      max-height: 420px;
       overflow-y: auto;
       padding-right: 10px;
     }
@@ -139,31 +150,44 @@
 <body>
 
   <div class="container">
+
     <!-- Question 1 -->
     <div class="question-step active" id="step1">
       <h2>Question 1 🎬</h2>
       <p>What was our first movie together?</p>
-      <input type="text" id="ans1" placeholder="OK Jaanu" />
-      <div class="error-msg" id="err1">Oops! Try again 💕</div>
-      <button onclick="checkAnswer(1)">Next →</button>
+      <div class="mcq-options">
+        <button class="mcq-btn" onclick="checkMCQ(1, false)">Jab we met</button>
+        <button class="mcq-btn" onclick="checkMCQ(1, true)">OK Jaanu</button>
+        <button class="mcq-btn" onclick="checkMCQ(1, false)">50 shades of grey</button>
+        <button class="mcq-btn" onclick="checkMCQ(1, false)">None of the above</button>
+      </div>
+      <div class="error-msg" id="err1">Well well well, TRY AGAIN.</div>
     </div>
 
     <!-- Question 2 -->
     <div class="question-step" id="step2">
       <h2>Question 2 📍</h2>
-      <p>When did we first kiss? (hehe mereko thoda kalesh karna tha ik u dont remember baby)</p>
-      <input type="text" id="ans2" placeholder="14th March" />
-      <div class="error-msg" id="err2">Nope, think harder! 💭</div>
-      <button onclick="checkAnswer(2)">Next →</button>
+      <p>When is our anniversaryyy</p>
+      <div class="mcq-options">
+        <button class="mcq-btn" onclick="checkMCQ(2, true)">26th June</button>
+        <button class="mcq-btn" onclick="checkMCQ(2, false)">22nd June</button>
+        <button class="mcq-btn" onclick="checkMCQ(2, false)">25th June</button>
+        <button class="mcq-btn" onclick="checkMCQ(2, false)">29th June</button>
+      </div>
+      <div class="error-msg" id="err2">Ur so cooked. THINK HARDER U BUFFON 💭</div>
     </div>
 
     <!-- Question 3 -->
     <div class="question-step" id="step3">
       <h2>Question 3 💋</h2>
-      <p>When is our anniversaryyyyyyy</p>
-      <input type="text" id="ans3" placeholder="26th June" />
-      <div class="error-msg" id="err3">Try again sweetheart! 🌹</div>
-      <button onclick="checkAnswer(3)">Next →</button>
+      <p>When did we first kiss? (hehe ik u dont remember mereko thoda sa na kalesh karna tha)</p>
+      <div class="mcq-options">
+        <button class="mcq-btn" onclick="checkMCQ(3, false)">18th April</button>
+        <button class="mcq-btn" onclick="checkMCQ(3, false)">11th March</button>
+        <button class="mcq-btn" onclick="checkMCQ(3, false)">29th April</button>
+        <button class="mcq-btn" onclick="checkMCQ(3, true)">14th March</button>
+      </div>
+      <div class="error-msg" id="err3">Try again my buffon (since u got this wrong on the first try, im gonna kill you <3)</div>
     </div>
 
     <!-- Final Trick Question Step -->
@@ -171,38 +195,28 @@
       <h2>Final Question 🥺</h2>
       <p>How much do you think I love you?</p>
       <div class="button-zone" id="zone">
-        <button id="bigBtn" onclick="showLetter()">sabse sabse zyadaaaaa ❤️</button>
-        <button id="runawayBtn" onmouseover="moveButton()" onclick="moveButton()">Only thodu sa ehhh</button>
+        <button id="bigBtn" onclick="showLetter()">sabsee sabseee sabseeee zyaaaddaaaa ❤️</button>
+        <button id="runawayBtn" onmouseover="moveButton()" onclick="moveButton()">sirf thodu sa ehhh</button>
       </div>
     </div>
 
     <!-- Letter Step -->
     <div class="question-step" id="stepLetter">
       <div class="letter">
-        <h1>Happy Boyfriend's Day babyyyyy! 💕</h1>
-        <p>Dear my stupid cutu sa buffoon,</p>
+        <h1>Happy Boyfriend's Day! 💕</h1>
+        <p>Dear mera pyaara sa buddhu sa buffoonnn,</p>
         <p>
-          [I dont even know where to start because there is literalllyy soo much I wanna say to youuu. You mean a lot to me, not just as my boyfriend, but as someone who has become such a hugeeee and speciall part of my life. i really love you so much, i know i dont show it sometimes in the way i should and expecially recently, I know i haven't been a good girlfriend or the easiest girlfriend to be with. I've reacted badly to things and let little things become bigger than they needed to be. I've been so caught up in how hurt I feel that I forget to stop and udnerstand how you must be feeling too.. Im really sorry for that. You are someone whose presence mattters to me in ways i literally cannot explainn sacchhiiii..I love the little cutu cutu se things about us, the random conversations, the stupid jokes, the reels we share, the calls, u ragebaiting my ass, the moments we're doing absolutely nothing but it still feels nice because its you. I'm so glad to have someone who I can tell random things to, someone whose name can instantly change my mooddd once i hear it. I feel so happy with you and you're my safe space. at times I just forget about all the other things in the world when I'm with you and I am sacchhii mein grateful to have you. I dont want to be the girlfriend who only knows how to love you when sab kuch is perfect, I want to be someone who can love you through all the bad days we have, i know i havent been like tha trecently, but i promise i will get better. I know i can be a lot sometimes, full kalesh only i do offf for chumma no reasonnn, but just know, that i love you ridiculously much. So so much. I hope you know ki even when im angry, I love you. Even when I'm upset, I love you. Even when im being stubborn, dramatic, emotional and impossible, I fucking love you. You've become such an important part of my life, You're not just my boyfriend, You're someone who i think contantlyyy abouttt (LITERALLY LIKE I KEEP DAY DREAMING ABOUT YOU 24/7 HOW RU SO PERFECT). I am really lucky to have you and i cherish you every moment of my life. I love you more than you know, and i always will baby. I promise. ]
+          I dont even know where to start because there is literalllyy soo much I wanna say to youuu. You mean a lot to me, not just as my boyfriend, but as someone who has become such a hugeeee and speciall part of my life. i really love you so much, i know i dont show it sometimes in the way i should and expecially recently, I know i haven't been a good girlfriend or the easiest girlfriend to be with. I've reacted badly to things and let little things become bigger than they needed to be. I've been so caught up in how hurt I feel that I forget to stop and understand how you must be feeling too.. Im really sorry for that. You are someone whose presence mattters to me in ways i literally cannot explainn sacchhiiii..I love the little cutu cutu se things about us, the random conversations, the stupid jokes, the reels we share, the calls, u ragebaiting my ass, the moments we're doing absolutely nothing but it still feels nice because its you. I'm so glad to have someone who I can tell random things to, someone whose name can instantly change my mooddd once i hear it. I feel so happy with you and you're my safe space. at times I just forget about all the other things in the world when I'm with you and I am sacchhii mein grateful to have you. I dont want to be the girlfriend who only knows how to love you when sab kuch is perfect, I want to be someone who can love you through all the bad days we have, i know i havent been like tha trecently, but i promise i will get better. I know i can be a lot sometimes, full kalesh only i do offf for chumma no reasonnn, but just know, that i love you ridiculously much. So so much. I hope you know ki even when im angry, I love you. Even when I'm upset, I love you. Even when im being stubborn, dramatic, emotional and impossible, I fucking love you. You've become such an important part of my life, You're not just my boyfriend, You're someone who i think contantlyyy abouttt (LITERALLY LIKE I KEEP DAY DREAMING ABOUT YOU 24/7 HOW RU SO PERFECT). I am really lucky to have you and i cherish you every moment of my life. I love you more than you know, and i always will baby. I promise.
         </p>
-        <p>Forever and everrr and everrr and everrrrrrr yours,<br>[Ivaaa]</p>
+        <p>Forever and ever and ever and everrrrr yours,<br>Ivaaa</p>
       </div>
     </div>
+
   </div>
 
   <script>
-    // Write your answers here (lowercase)
-    const correctAnswers = {
-      1: "OK jaanu",  // Put your Answer 1 here
-      2: "14th March",  // Put your Answer 2 here
-      3: "26th June"      // Put your Answer 3 here
-    };
-
-    function checkAnswer(step) {
-      const inputVal = document.getElementById(`ans${step}`).value.trim().toLowerCase();
-      const expected = correctAnswers[step].toLowerCase();
-
-      // Checks if the typed answer matches
-      if (inputVal === expected) {
+    function checkMCQ(step, isCorrect) {
+      if (isCorrect) {
         document.getElementById(`err${step}`).style.display = "none";
         document.getElementById(`step${step}`).classList.remove("active");
         
