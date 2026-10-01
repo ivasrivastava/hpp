@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Happy Boyfriend's Day! ❤️</title>
+  <style>
+    :root {
+      --bg-color: #fff0f3;
+      --card-bg: #ffffff;
+      --primary: #ff4d6d;
+      --primary-hover: #c9184a;
+      --text: #590d22;
+      --secondary-text: #a4133c;
+    }
+
+    body {
+      margin: 0;
+      padding: 20px;
+      background-color: var(--bg-color);
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      color: var(--text);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      box-sizing: border-box;
+    }
+
+    .container {
+      background: var(--card-bg);
+      padding: 30px 25px;
+      border-radius: 20px;
+      box-shadow: 0 10px 25px rgba(255, 77, 109, 0.15);
+      max-width: 450px;
+      width: 100%;
+      text-align: center;
+      position: relative;
+    }
+
+    h2 {
+      margin-top: 0;
+      color: var(--secondary-text);
+      font-size: 1.4rem;
+    }
+
+    .question-step {
+      display: none;
+    }
+
+    .question-step.active {
+      display: block;
+    }
+
+    input[type="text"] {
+      width: 100%;
+      padding: 12px 15px;
+      margin: 15px 0 20px 0;
+      border: 2px solid #ffccd5;
+      border-radius: 10px;
+      font-size: 1rem;
+      box-sizing: border-box;
+      outline: none;
+      transition: border-color 0.3s;
+    }
+
+    input[type="text"]:focus {
+      border-color: var(--primary);
+    }
+
+    button {
+      background-color: var(--primary);
+      color: white;
+      border: none;
+      padding: 12px 24px;
+      font-size: 1rem;
+      font-weight: bold;
+      border-radius: 25px;
+      cursor: pointer;
+      transition: background-color 0.2s, transform 0.1s;
+    }
+
+    button:hover {
+      background-color: var(--primary-hover);
+    }
+
+    .error-msg {
+      color: #d90429;
+      font-size: 0.85rem;
+      margin-top: -10px;
+      margin-bottom: 15px;
+      display: none;
+    }
+
+    .button-zone {
+      position: relative;
+      min-height: 120px;
+      margin-top: 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 15px;
+    }
+
+    #bigBtn {
+      font-size: 1.2rem;
+      padding: 16px 32px;
+      z-index: 2;
+    }
+
+    #runawayBtn {
+      position: absolute;
+      font-size: 0.8rem;
+      padding: 6px 12px;
+      background-color: #ffb3c1;
+      color: var(--text);
+      z-index: 10;
+      transition: all 0.15s ease-out;
+    }
+
+    .letter {
+      text-align: left;
+      line-height: 1.6;
+      font-size: 1.05rem;
+      color: var(--text);
+      white-space: pre-wrap;
+      max-height: 400px;
+      overflow-y: auto;
+      padding-right: 10px;
+    }
+
+    .letter h1 {
+      text-align: center;
+      color: var(--primary);
+      margin-bottom: 20px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <!-- Question 1 -->
+    <div class="question-step active" id="step1">
+      <h2>Question 1 🎬</h2>
+      <p>What was our first movie together?</p>
+      <input type="text" id="ans1" placeholder="OK Jaanu" />
+      <div class="error-msg" id="err1">Oops! Try again 💕</div>
+      <button onclick="checkAnswer(1)">Next →</button>
+    </div>
+
+    <!-- Question 2 -->
+    <div class="question-step" id="step2">
+      <h2>Question 2 📍</h2>
+      <p>When did we first kiss? (hehe mereko thoda kalesh karna tha ik u dont remember baby)</p>
+      <input type="text" id="ans2" placeholder="14th March" />
+      <div class="error-msg" id="err2">Nope, think harder! 💭</div>
+      <button onclick="checkAnswer(2)">Next →</button>
+    </div>
+
+    <!-- Question 3 -->
+    <div class="question-step" id="step3">
+      <h2>Question 3 💋</h2>
+      <p>When is our anniversaryyyyyyy</p>
+      <input type="text" id="ans3" placeholder="26th June" />
+      <div class="error-msg" id="err3">Try again sweetheart! 🌹</div>
+      <button onclick="checkAnswer(3)">Next →</button>
+    </div>
+
+    <!-- Final Trick Question Step -->
+    <div class="question-step" id="stepFinal">
+      <h2>Final Question 🥺</h2>
+      <p>How much do you think I love you?</p>
+      <div class="button-zone" id="zone">
+        <button id="bigBtn" onclick="showLetter()">sabse sabse zyadaaaaa ❤️</button>
+        <button id="runawayBtn" onmouseover="moveButton()" onclick="moveButton()">Only thodu sa ehhh</button>
+      </div>
+    </div>
+
+    <!-- Letter Step -->
+    <div class="question-step" id="stepLetter">
+      <div class="letter">
+        <h1>Happy Boyfriend's Day babyyyyy! 💕</h1>
+        <p>Dear my stupid cutu sa buffoon,</p>
+        <p>
+          [I dont even know where to start because there is literalllyy soo much I wanna say to youuu. You mean a lot to me, not just as my boyfriend, but as someone who has become such a hugeeee and speciall part of my life. i really love you so much, i know i dont show it sometimes in the way i should and expecially recently, I know i haven't been a good girlfriend or the easiest girlfriend to be with. I've reacted badly to things and let little things become bigger than they needed to be. I've been so caught up in how hurt I feel that I forget to stop and udnerstand how you must be feeling too.. Im really sorry for that. You are someone whose presence mattters to me in ways i literally cannot explainn sacchhiiii..I love the little cutu cutu se things about us, the random conversations, the stupid jokes, the reels we share, the calls, u ragebaiting my ass, the moments we're doing absolutely nothing but it still feels nice because its you. I'm so glad to have someone who I can tell random things to, someone whose name can instantly change my mooddd once i hear it. I feel so happy with you and you're my safe space. at times I just forget about all the other things in the world when I'm with you and I am sacchhii mein grateful to have you. I dont want to be the girlfriend who only knows how to love you when sab kuch is perfect, I want to be someone who can love you through all the bad days we have, i know i havent been like tha trecently, but i promise i will get better. I know i can be a lot sometimes, full kalesh only i do offf for chumma no reasonnn, but just know, that i love you ridiculously much. So so much. I hope you know ki even when im angry, I love you. Even when I'm upset, I love you. Even when im being stubborn, dramatic, emotional and impossible, I fucking love you. You've become such an important part of my life, You're not just my boyfriend, You're someone who i think contantlyyy abouttt (LITERALLY LIKE I KEEP DAY DREAMING ABOUT YOU 24/7 HOW RU SO PERFECT). I am really lucky to have you and i cherish you every moment of my life. I love you more than you know, and i always will baby. I promise. ]
+        </p>
+        <p>Forever and everrr and everrr and everrrrrrr yours,<br>[Ivaaa]</p>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Write your answers here (lowercase)
+    const correctAnswers = {
+      1: "OK jaanu",  // Put your Answer 1 here
+      2: "14th March",  // Put your Answer 2 here
+      3: "26th June"      // Put your Answer 3 here
+    };
+
+    function checkAnswer(step) {
+      const inputVal = document.getElementById(`ans${step}`).value.trim().toLowerCase();
+      const expected = correctAnswers[step].toLowerCase();
+
+      // Checks if the typed answer matches
+      if (inputVal === expected) {
+        document.getElementById(`err${step}`).style.display = "none";
+        document.getElementById(`step${step}`).classList.remove("active");
+        
+        if (step < 3) {
+          document.getElementById(`step${step + 1}`).classList.add("active");
+        } else {
+          document.getElementById("stepFinal").classList.add("active");
+        }
+      } else {
+        document.getElementById(`err${step}`).style.display = "block";
+      }
+    }
+
+    function moveButton() {
+      const btn = document.getElementById("runawayBtn");
+      const zone = document.getElementById("zone");
+      
+      const zoneRect = zone.getBoundingClientRect();
+      const btnRect = btn.getBoundingClientRect();
+
+      const maxX = zoneRect.width - btnRect.width;
+      const maxY = zoneRect.height - btnRect.height;
+
+      const randomX = Math.floor(Math.random() * maxX) - (zoneRect.width / 2) + (btnRect.width / 2);
+      const randomY = Math.floor(Math.random() * maxY) - (zoneRect.height / 2) + (btnRect.height / 2);
+
+      btn.style.transform = `translate(${randomX}px, ${randomY}px)`;
+    }
+
+    function showLetter() {
+      document.getElementById("stepFinal").classList.remove("active");
+      document.getElementById("stepLetter").classList.add("active");
+    }
+  </script>
+</body>
+</html>
